@@ -16,29 +16,29 @@ The goals / steps of this project are the following:
 
 The pipeline consists of these main steps:
 1. Convert image to HSL to better separate lanes using `cv2.cvtColor`
-<img src='hsl.png' width='400'>
+<img src='write_up_images/hsl.png' width='400'>
 
 2. Isolate yellow and white with masks using `cv2.inRange`. This helps get rid of shadows and smudges on the road.
-<img src='isolate.png' width='400'>
+<img src='write_up_images/isolate.png' width='400'>
 
 3. Convert image to grayscale. This has the effect of speeding up processing since we are dealing with only one channel.
-<img src='grayscale.png' width='400'>
+<img src='write_up_images/grayscale.png' width='400'>
 
 4. Gaussian blur with kernel_size (5,5) to remove noise and high-frequency pixels in the image
-<img src='gaussian.png' width='400'>
+<img src='write_up_images/gaussian.png' width='400'>
 
 5. Apply Canny detection with threshold 50 - 150
-<img src='canny.png' width='400'>
+<img src='write_up_images/canny.png' width='400'>
 
 6. Apply region of interest. The vertices are hardcoded but extendable to different image sizes.
-<img src='roi.png' width='400'>
+<img src='write_up_images/roi.png' width='400'>
 
 5. Apply Hough transformation with `rho = 1`, `theta = np.pi/180`,
   `threshold = 15`, `min_line_length = 10`, `max_line_gap = 40`
-  <img src='hough.png' width='400'>
+  <img src='write_up_images/hough.png' width='400'>
 
 6. Overlay the result of Hough transformation on the original image
-<img src='overlay.png' width='400'>
+<img src='write_up_images/overlay.png' width='400'>
 
 
 In the `draw_line()` function, I performed the following steps:
